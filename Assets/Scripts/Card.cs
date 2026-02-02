@@ -39,6 +39,26 @@ public class Card
 
     public override string ToString()
     {
-        return $"{Rank} of {Suit}";
+        string rankStr = Rank switch
+        {
+            Rank.Ace => "A",
+            Rank.Jack => "J",
+            Rank.Queen => "Q",
+            Rank.King => "K",
+            _ => ((int)Rank).ToString()
+        };
+
+        string suitStr = Suit switch
+        {
+            Suit.Clubs => "♣",
+            Suit.Diamonds => "♦",
+            Suit.Hearts => "♥",
+            Suit.Spades => "♠",
+            _ => "?"
+        };
+
+        return $"{rankStr}{suitStr}";
     }
+
+
 }
